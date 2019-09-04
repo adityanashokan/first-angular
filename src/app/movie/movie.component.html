@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="jumbotron jb1">
+        <div class="page-header">
+                <h2>{{movie.original_title}}<small></small></h2>
+        </div>
+    <div class="row">
+        <div class="img-square-wrapper  img-circle col-md-6">
+            <img class="" src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="Card image cap">
+        </div>
+
+        <div class="details col-md-6">
+            <h4> Genre </h4>
+            <button *ngFor="let genre of movie.genres" type="button" class="btn btn-info">{{genre.name}}</button>
+            <h4> Release Date </h4>
+            <p> {{movie.release_date}}</p>
+            <h4> Synopsis</h4>
+            <p> {{movie.overview}}</p>
+            <div *ngIf="infav; then thenBlock else elseBlock"></div>
+                <ng-template #thenBlock><button  (click) = "removeFromFav(movie)" type="button" class="btn btn-danger">Added to Favourites</button></ng-template>
+                <ng-template #elseBlock><button (click) = "addToFavs(movie)" type="button" class="btn btn-info">Add to Favourites</button></ng-template>
+            
+        </div>                       
+    </div>
+    </div>
+</div>    

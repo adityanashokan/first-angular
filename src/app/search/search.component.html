@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="jumbotron jb1">
+        <div class="page-header">
+            <h3>Search Results of : <small> {{searchQuery}} </small></h3>
+        </div>
+        <div *ngFor = "let searchObj of search.results">
+        <!--Start of loop-->
+        <a (click) = "onSelect(searchObj)" class="stretched-link">
+        <div class="row search-row">
+             <h4 class="card-title">{{searchObj.original_title}}</h4>
+             
+        </div>    
+         </a>                     
+        </div>
+        <!--End of loop-->   
+        </div>    
+    </div>    
+

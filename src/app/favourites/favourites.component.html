@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="jumbotron jb1">
+         <div class="row searchHeading">
+               <h2>Favourite Movies</h2>
+        </div>
+    </div>
+        <div *ngFor = "let favFilm of wishlist" class="row fav-row">
+                <div class="col-md-12">
+                        <div class="card">
+                                <div class="card-horizontal">
+                                    <div class="col-md-4">
+                                        <img class="fav-img" src="https://image.tmdb.org/t/p/w500/{{favFilm.poster_path}}" alt="Card image cap">
+                                    </div>
+                                    <div class="card-body col-md-8">
+                                        <h3 class="card-title"> {{favFilm.title}}</h3>
+                                        <p>{{favFilm.overview}}</p>
+                                        <h5><u>Comments</u></h5>
+                                        <div *ngIf="favFilm.comments == null; then thenBlock else elseBlock"></div>
+                                                    <ng-template #thenBlock><p class="commentP">No Comments</p></ng-template>
+                                                    <ng-template #elseBlock> <p class="commentP" *ngFor="let comments of favFilm.comments,let i = index">{{comments}}<i (click)="showEdit(comments,i)"class="far fa-edit deletebtn" aria-hidden="true"></i></p>
+                                                        <form *ngIf="edit" class="form commentForm">
+                                                                <div class="form-group">
+                                                                    <input #editcmt type="text" class="form-control" placeholder="Edit Comment" aria-label="Add Comment" value="{{editComment}}">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                <button   (click) = "editCommentPush(editcmt.value,favFilm)" type="submit" class="btn btn-default">Edit</button>
+                                                                <button   (click) = "doneEdit()" type="submit" class="btn btn-danger">Done</button>
+                                                                </div>
+                                                            </form>  
+                                                    </ng-template>
+                                        <form *ngIf="!edit" class="form commentForm">
+                                            <div class="form-group">
+                                                <input #comment type="text" class="form-control" placeholder="Add Comment" aria-label="Add Comment">
+                                            </div>
+                                            <div class="form-group">
+                                            <button   (click) = "addComment(comment.value,favFilm)" type="submit" class="btn btn-default">Add</button>
+                                            </div>
+                                        </form>
+                                        <a (click) = "onSelect(favFilm)" class="btn btn-default" role="button">Learn More</a>
+                                        <a (click) = "removeFromFav(favFilm)" class="btn btn-danger removeBtn" role="button">Remove</a>
+                                    </div>
+                                </div>
+                        </div>
+                </div>
+        </div>
+</div>

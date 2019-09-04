@@ -1,0 +1,32 @@
+.container{
+    font-family: 'Quicksand', sans-serif;
+}
+
+.jb1{
+    background: url('../../assets/img/home_search_bg.jpg')
+}
+.jb1 a{
+    text-decoration: none;
+}
+.fav-img {
+    width:200px;
+}
+
+.search-row{
+    margin:10px;
+    background: rgba(44, 58, 138, 0.582);
+    color: black;
+    border-radius: 20px;
+}
+
+.lmbtn{
+    margin-top: 10px;
+}
+
+.search-row:hover {
+    box-shadow: red;
+  }
+
+.search-row h4{
+    padding-left: 0.5%;
+}  

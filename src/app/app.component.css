@@ -1,0 +1,28 @@
+#footer-main {
+    background: #4b4b4b;
+    color: white;
+    font-size: 0.8rem;
+    position: relative;
+    clear:both;
+    width: 100%;
+}
+#footer-main i {
+    padding: 10%;
+}
+.ftr_left{
+    margin-top:2%;
+}
+
+.container{
+    font-family: 'Righteous', cursive;
+}
+
+nav{
+    background: #4b4b4b;
+
+}
+
+.navopts{
+    color: aliceblue;
+    text-decoration: none;
+}

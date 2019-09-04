@@ -1,0 +1,49 @@
+<div class="container-fluid">
+<div class="jumbotron jb1">
+  <div class="row searchHeading">
+    <h2>Search For Movies</h2>
+  </div>
+  <div class="row ">
+      <form class="form">
+          <div class="col-md-4"></div>
+          <div class="form-group col-md-3">
+          <input #searchQuery class="form-control searchBar col-md-4" type="text" placeholder="Search" aria-label="Search">
+          </div>
+          <div class="col-md-4">
+          <button  (click)="onSearch(searchQuery.value)" type="submit" class="btn btn-default col-md-4 searchbtn">Search</button> 
+          </div> 
+      </form>   
+  </div>
+</div>  
+<div class="jumbotron jb1">
+    <div class="page-header">
+        <h3>Trending Movies</h3>
+    </div>
+ 
+ <div class="row">
+   <div *ngFor = "let popMovie of popMovies.results;index as i">
+     <!--Start of loop-->
+     <div *ngIf="i%4==0&&i!=0" class="row">
+       <br><br>       
+      </div>
+     <div class="col-md-3">
+        <div class="thumbnail">
+          <img src="https://image.tmdb.org/t/p/w500/{{popMovie.poster_path}}" alt="sample image">
+          <div class="caption">
+            <h4>{{popMovie.title}}</h4>
+            <p class="">{{popMovie.release_date}}</p>
+            <a (click) = "onSelect(popMovie)" class="btn btn-default" role="button">Learn More</a>
+          </div>
+        </div>
+        </div>
+       
+      <!--End of loop-->
+      </div>
+ 
+    </div>  
+    
+
+      
+
+</div>
+</div> 
