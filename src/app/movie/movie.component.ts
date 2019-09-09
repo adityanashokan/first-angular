@@ -31,7 +31,7 @@ export class MovieComponent implements OnInit {
     favMovie.title = movie.original_title;
     favMovie.poster_path = movie.poster_path;
     favMovie.overview = movie.overview;
-    favMovie.comments = [];
+    favMovie.comments = "";
     this.http.post(this.putUrl,favMovie,{headers: new HttpHeaders({'Content-Type': 'application/json' })}).subscribe(()=>this.ngOnInit());
   }
 

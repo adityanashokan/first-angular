@@ -3,5 +3,5 @@ export class WishList {
   title: string;  
   poster_path: string; 
   overview : string;
-  comments : [];
+  comments : string;
 }

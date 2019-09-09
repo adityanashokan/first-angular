@@ -17,7 +17,7 @@
                                         <h5><u>Comments</u></h5>
                                         <div *ngIf="favFilm.comments == null; then thenBlock else elseBlock"></div>
                                                     <ng-template #thenBlock><p class="commentP">No Comments</p></ng-template>
-                                                    <ng-template #elseBlock> <p class="commentP" *ngFor="let comments of favFilm.comments,let i = index">{{comments}}<i (click)="showEdit(comments,i)"class="far fa-edit deletebtn" aria-hidden="true"></i></p>
+                                                    <ng-template #elseBlock> <p class="commentP" >{{favFilm.comments}}<i (click)="showEdit(favFilm)"class="far fa-edit deletebtn" aria-hidden="true"></i></p>
                                                         <form *ngIf="edit" class="form commentForm">
                                                                 <div class="form-group">
                                                                     <input #editcmt type="text" class="form-control" placeholder="Edit Comment" aria-label="Add Comment" value="{{editComment}}">
@@ -33,7 +33,7 @@
                                                 <input #comment type="text" class="form-control" placeholder="Add Comment" aria-label="Add Comment">
                                             </div>
                                             <div class="form-group">
-                                            <button   (click) = "addComment(comment.value,favFilm)" type="submit" class="btn btn-default">Add</button>
+                                            <button (click) = "addComment(comment.value,favFilm)" type="submit" class="btn btn-default">Add</button>
                                             </div>
                                         </form>
                                         <a (click) = "onSelect(favFilm)" class="btn btn-default" role="button">Learn More</a>

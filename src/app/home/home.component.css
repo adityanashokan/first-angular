@@ -16,8 +16,8 @@ font-size: 15px;
 .card{
     margin: 0.2%;
 }
-.thumbnail:hover{
-    box-shadow: #ce93d8;
+.thumbnail{
+    height: 550px;
 
 }
 .active-purple-3 input[type=text]:focus:not([readonly]) {
@@ -40,4 +40,9 @@ font-size: 15px;
 
 .searchHeading{
     text-align: center;
+}
+
+.LearnBtn{
+    bottom: 7%;
+    position: absolute;
 }

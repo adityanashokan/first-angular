@@ -15,7 +15,6 @@ export class FavouritesComponent implements OnInit {
   public jsonUrl = 'http://localhost:3004/posts/';
   public edit = false;
   public editComment ;
-  public editCommentIndex;
   constructor(private _fav : FavouritelistService, private http : HttpClient, private router: Router) { }
 
   ngOnInit() {
@@ -38,19 +37,18 @@ export class FavouritesComponent implements OnInit {
      if(comment==""){
         return;
      }
-      movie.comments.push(comment);
+      movie.comments = comment;
       this._fav.updateList(movie).subscribe(this.ngOnInit);
    }
 
    editCommentPush(comment,movie){
-      movie.comments[this.editCommentIndex] = comment;
+      movie.comments = comment;
       this._fav.updateList(movie).subscribe(this.ngOnInit);
    }
 
-   showEdit(comment,i){
+   showEdit(movie){
       this.edit = true;
-      this.editComment = comment;
-      this.editCommentIndex = i;
+      this.editComment = movie.comments;
    }
 
    doneEdit(){
